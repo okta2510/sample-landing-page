@@ -1,11 +1,28 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.vue';
+import CategoryGrid from '../components/CategoryGrid.vue';
+import BestSeller from '../components/BestSeller.vue';
+import PromoSection from '../components/PromoSection.vue';
+import ArticleSection from '../components/ArticleSection.vue';
+import "../styles/global.css";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Bubble Pet Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  </head>
+  <body>
+    <Header id="home"/>
+    <HeroSection id="category"/>
+		<CategoryGrid />
+			<BestSeller id="shop"/>
+			<PromoSection id="promo"/>
+			<ArticleSection id="article" />
+    <Footer />
+  </body>
+</html>

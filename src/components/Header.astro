@@ -1,0 +1,41 @@
+<header class="header fixed top-0 left-0 w-full bg-white z-50 shadow-md">
+  <div class="container flex justify-between items-center py-4 mx-auto">
+    <div class="logo text-xl font-bold">
+      <a href="#">
+        <img src="/src/assets/logo.png" alt="Logo" class="h-[80px]">
+      </a>
+    </div>
+    <nav class="flex gap-4">
+      <a href="#home" class="nav-link">Beranda</a>
+      <a href="#shop" class="nav-link">Belanja</a>
+      <a href="#promo" class="nav-link">Promo</a>
+      <a href="#article" class="nav-link">Article</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Smooth scrolling for navigation links
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        const targetId = href ? href.substring(1) : null;
+        const targetElement = targetId ? document.getElementById(targetId) : null;
+        if (targetElement) {
+          const headerElement = document.querySelector('.header');
+          const headerOffset = headerElement ? (headerElement as HTMLElement).offsetHeight : 0;
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
