@@ -1,26 +1,31 @@
-# Astro Starter Kit: Basics
+# Creative Landing Page
 
-```sh
-npm create astro@latest -- --template basics
-```
+This repository contains a one-page landing page project built with [Astro](https://astro.build). The goal of this project is to create a visually stunning and clean design for a landing page, showcasing creativity and attention to detail. The design is custom-made using [Figma](https://www.figma.com) and implemented with modern web development practices.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+![Project Preview](./preview.jpg)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ✨ Features
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- **Custom Design**: The landing page design is fully customized and created in Figma to ensure a unique and creative look.
+- **Responsive Layout**: The page is optimized for all devices, including desktops, tablets, and mobile phones.
+- **Smooth Navigation**: Includes smooth scrolling animations for a seamless user experience.
+- **Clean Code**: Built with Astro for fast performance and maintainability.
+- **Modern UI/UX**: Focused on delivering a visually appealing and user-friendly interface.
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside this project, you'll find the following folders and files:
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   └── assets/
+│       ├── logo.png
+│       ├── preview.jpg
+│       └── figma.png
 ├── src/
+│   ├── components/
+│   │   └── Header.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
@@ -28,9 +33,9 @@ Inside of your Astro project, you'll see the following folders and files:
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+To learn more about the folder structure of an Astro project, refer to [Astro's project structure guide](https://docs.astro.build/en/basics/project-structure/).
 
-## 🧞 Commands
+## 🛠️ Development Workflow
 
 All commands are run from the root of the project, from a terminal:
 
@@ -38,11 +43,18 @@ All commands are run from the root of the project, from a terminal:
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm run build`           | Builds the production site to `./dist/`          |
+| `npm run preview`         | Previews your build locally before deploying     |
+| `npm run astro ...`       | Runs Astro CLI commands like `astro add`         |
+| `npm run astro -- --help` | Displays help for Astro CLI                      |
 
-## 👀 Want to learn more?
+## 🎨 Design Process
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The design for this landing page was created in Figma, focusing on:
+
+![Figma Design](./figma.png)
+
+- **Creativity**: A unique and visually appealing design.
+- **Clean Layout**: A minimalistic and organized structure.
+- **User Experience**: Ensuring ease of navigation and readability.
+

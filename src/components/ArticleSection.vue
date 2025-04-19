@@ -1,6 +1,6 @@
 <template>
   <section class="py-[80px] px-4 ">
-    <div class="container mx-auto">
+    <div class="container mx-auto" data-aos="fade-up">
       <h2 class="text-2xl font-bold text-center mb-6">Artikel & Tips</h2>
       <div class="grid md:grid-cols-3 gap-4">
         <div v-for="n in 3" :key="n" class="bg-white rounded-lg p-4">

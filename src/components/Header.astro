@@ -1,41 +1,113 @@
 <header class="header fixed top-0 left-0 w-full bg-white z-50 shadow-md">
-  <div class="container flex justify-between items-center py-4 mx-auto">
+  <div class="container flex justify-between items-center py-4 mx-auto px-[30px]">
     <div class="logo text-xl font-bold">
       <a href="#">
-        <img src="/src/assets/logo.png" alt="Logo" class="h-[80px]">
+        <img src="/src/assets/logo.png" alt="Logo" class="h-[60px]">
       </a>
     </div>
-    <nav class="flex gap-4">
-      <a href="#home" class="nav-link">Beranda</a>
-      <a href="#shop" class="nav-link">Belanja</a>
-      <a href="#promo" class="nav-link">Promo</a>
-      <a href="#article" class="nav-link">Article</a>
+    <nav class="flex gap-4 text-[#666]">
+      <a href="#hero" class="nav-link relative" onclick="setActiveLink('hero')">
+      Beranda
+      <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"></span>
+      </a>
+      <a href="#shop" class="nav-link relative" onclick="setActiveLink('shop')">
+      Belanja
+      <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"></span>
+      </a>
+      <a href="#promo" class="nav-link relative" onclick="setActiveLink('promo')">
+      Promo
+      <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"></span>
+      </a>
+      <a href="#article" class="nav-link relative" onclick="setActiveLink('article')">
+      Article
+      <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"></span>
+      </a>
     </nav>
+
+    <style>
+      .nav-link:hover span,
+      .nav-link.active span {
+      width: 100%;
+      }
+      .nav-link.active {
+        color:#000;
+      }
+    </style>
+
+    <script>
+          declare global {
+            interface Window {
+              setActiveLink: (id: string) => void;
+            }
+          }
+    
+          let activeLink = '';
+          window.setActiveLink = (id: string) => {
+        activeLink = id;
+        updateNavLinks();
+      };
+
+      const setActiveLink = (id: string) => {
+      activeLink = id;
+      updateNavLinks();
+      };
+
+      const updateNavLinks = () => {
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const targetId = href ? href.substring(1) : null;
+        if (targetId === activeLink) {
+        link.classList.add('active');
+        } else {
+        link.classList.remove('active');
+        }
+      });
+      };
+
+      document.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      let currentSection = '';
+      sections.forEach(section => {
+        const sectionTop = (section as HTMLElement).offsetTop - 100; // Adjust offset for header
+        const sectionHeight = (section as HTMLElement).offsetHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentSection = section.getAttribute('id') || '';
+        }
+      });
+      if (currentSection) {
+        setActiveLink(currentSection);
+      }
+      });
+    </script>
   </div>
 </header>
 
 <script>
   // Smooth scrolling for navigation links
   document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        const targetId = href ? href.substring(1) : null;
-        const targetElement = targetId ? document.getElementById(targetId) : null;
-        if (targetElement) {
-          const headerElement = document.querySelector('.header');
-          const headerOffset = headerElement ? (headerElement as HTMLElement).offsetHeight : 0;
-          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition - headerOffset;
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      const targetId = href ? href.substring(1) : null;
+      const targetElement = targetId ? document.getElementById(targetId) : null;
+      if (targetElement) {
+        const headerElement = document.querySelector('.header');
+        const headerOffset = headerElement ? (headerElement as HTMLElement).offsetHeight : 0;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        let offsetPosition = elementPosition - headerOffset;
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
+        // Ensure offsetPosition is not negative
+        offsetPosition = Math.max(offsetPosition, 0);
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     });
   });
+});
 </script>
