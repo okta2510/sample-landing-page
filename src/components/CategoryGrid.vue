@@ -20,9 +20,9 @@
 
 <script setup>
 const categories = [
-  { title: 'Makanan Hewan', image: '/src/assets/cat1.jpg'},
-  { title: 'Aksesoris', image: '/src/assets/cat2.jpg'},
-  { title: 'Perawatan', image: '/src/assets/cat3.jpg'},
-  { title: 'Kesehatan', image: '/src/assets/cat4.jpg'},
+  { title: 'Makanan Hewan', image: '/assets/cat1.jpg'},
+  { title: 'Aksesoris', image: '/assets/cat2.jpg'},
+  { title: 'Perawatan', image: '/assets/cat3.jpg'},
+  { title: 'Kesehatan', image: '/assets/cat4.jpg'},
 ];
 </script>
