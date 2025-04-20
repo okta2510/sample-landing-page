@@ -3,7 +3,7 @@
     <div class="container mx-auto px-[30px]">
       <div class="grid grid-cols-12 gap-4 items-center lg:py-[100px]">
         <div class="left-side col-span-5 text-left z-1 relative" data-aos="fade-up ">
-          <h1 class="text-3xl font-bold mb-4">
+          <h1 class="text-4xl font-bold mb-4">
             Pet Shop Terlengkap untuk Kebutuhan Hewan Peliharaan Anda
           </h1>
           <p class="mb-6">Dapatkan diskon spesial untuk pembelian pertama!</p>

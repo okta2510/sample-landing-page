@@ -6,7 +6,7 @@
         <img src="/assets/Logo.png" alt="Logo" class="h-[60px]">
       </a>
     </div>
-    <nav class="flex gap-4 text-[#666]">
+    <nav class="gap-4 text-[#666] lg:flex hidden">
       <a href="#hero" class="nav-link relative" onclick="setActiveLink('hero')">
       Beranda
       <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"></span>
@@ -24,18 +24,83 @@
       <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"></span>
       </a>
     </nav>
+    <button id="burger-menu" class="text-[#666] focus:outline-none lg:hidden visible">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
 
-    <style>
-      .nav-link:hover span,
-      .nav-link.active span {
-      width: 100%;
-      }
-      .nav-link.active {
-        color:#000;
-      }
-    </style>
 
-    <script>
+    
+
+  </div>
+
+  <div class="relative lg:hidden block w-full">
+    <div id="dropdown-menu" class="relative right-0 mt-2 bg-white rounded-md hidden w-full">
+      <a href="#hero" class="block px-4 py-2 text-sm text-[#666] hover:bg-gray-100" onclick="setActiveLink('hero')">Beranda</a>
+      <a href="#shop" class="block px-4 py-2 text-sm text-[#666] hover:bg-gray-100" onclick="setActiveLink('shop')">Belanja</a>
+      <a href="#promo" class="block px-4 py-2 text-sm text-[#666] hover:bg-gray-100" onclick="setActiveLink('promo')">Promo</a>
+      <a href="#article" class="block px-4 py-2 text-sm text-[#666] hover:bg-gray-100" onclick="setActiveLink('article')">Article</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav-link:hover span,
+  .nav-link.active span {
+  width: 100%;
+  }
+  .nav-link.active {
+    color:#000;
+  }
+</style>
+
+<script>
+  // Smooth scrolling for navigation links
+  document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      const targetId = href ? href.substring(1) : null;
+      const targetElement = targetId ? document.getElementById(targetId) : null;
+      if (targetElement) {
+        const headerElement = document.querySelector('.header');
+        const headerOffset = headerElement ? (headerElement as HTMLElement).offsetHeight : 0;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        let offsetPosition = elementPosition - headerOffset;
+
+        // Ensure offsetPosition is not negative
+        offsetPosition = Math.max(offsetPosition, 0);
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+        const burgerMenu = document.getElementById('burger-menu');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        burgerMenu?.addEventListener('click', () => {
+          if (dropdownMenu) {
+            dropdownMenu.classList.toggle('hidden');
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!burgerMenu?.contains(e.target as Node) && !dropdownMenu?.contains(e.target as Node)) {
+            dropdownMenu?.classList.add('hidden');
+          }
+        });
+      });
+      
           declare global {
             interface Window {
               setActiveLink: (id: string) => void;
@@ -80,35 +145,4 @@
         setActiveLink(currentSection);
       }
       });
-    </script>
-  </div>
-</header>
-
-<script>
-  // Smooth scrolling for navigation links
-  document.addEventListener('DOMContentLoaded', () => {
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const href = link.getAttribute('href');
-      const targetId = href ? href.substring(1) : null;
-      const targetElement = targetId ? document.getElementById(targetId) : null;
-      if (targetElement) {
-        const headerElement = document.querySelector('.header');
-        const headerOffset = headerElement ? (headerElement as HTMLElement).offsetHeight : 0;
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        let offsetPosition = elementPosition - headerOffset;
-
-        // Ensure offsetPosition is not negative
-        offsetPosition = Math.max(offsetPosition, 0);
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-});
 </script>

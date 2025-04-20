@@ -9,11 +9,11 @@
           <p class="text-sm">Rp. 99,000</p>
         </div>
       </div>
-      <div class="text-center mt-6" data-aos="fade-up" data-aos-delay="180">
+      <div class="text-center mt-6" data-aos="fade-up" data-aos-delay="300" data-aos-anchor-placement="top-bottom">
         <button class="bg-black text-white px-6 py-2 rounded flex items-center space-x-2 mx-auto">
-            <span>Selengkapnya</span>
+        <span>Selengkapnya</span>
           <svg class="arrow-animation w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
           </svg>
           </button>
       </div>
